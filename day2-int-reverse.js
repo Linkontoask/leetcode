@@ -30,7 +30,7 @@ var reverse = function(x) {
   let c = 1, char = x + '';
   if (x < 0) {
     c = -1
-    char = char.slice(1, char.length)
+    char = char.substring(1)
   }
   const result = +[...char].reverse().join('') * c
   if (result < -Math.pow(2, 31) || result > Math.pow(2, 31) - 1) {
