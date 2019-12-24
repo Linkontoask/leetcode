@@ -37,7 +37,7 @@
  * @return {string}
  */
 var convert = function(s, numRows) {
-  let rows = Array.from({length: Math.min(s.length, numRows)}).fill('');
+  let rows = Array.from({length: Math.max(s.length, numRows)}).fill('');
 
   let loc = 0;
   let down = false;
@@ -51,4 +51,4 @@ var convert = function(s, numRows) {
   return rows.join('')
 };
 
-console.log(convert('LEETCODEISHIRING', 3) === 'LCIRETOESIIGEDHN')
+console.log(convert('LEETCODEISHIRING', 4) === 'LDREOEIIECIHNTSG')
