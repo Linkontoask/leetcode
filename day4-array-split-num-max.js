@@ -29,18 +29,18 @@
  * @return {number}
  */
 var splitArray = function(nums, m) {
-  const mid = nums.reduce((a,b) => a + b) / m
+  const mid = nums.reduce(sum) / m
   nums.sort((a,b) => b - a)
 
   const split = Array.from({length: m}).fill([])
   let index = 0
   for (var i = 0, len = nums.length; i < len; i++) {
     const num = nums[i]
-    const before = split[index].length > 0 ? split[index].reduce((a,b) => a + b) : 0
+    const before = split[index].length > 0 ? split[index].reduce(sum) : 0
     let check = false
     if (index === (m - 1) && before + num > mid) {
       check = true
-      const splitNum = split.map(item => item.reduce((a,b) => a + b))
+      const splitNum = split.map(item => item.reduce(sum))
       const minIndex = splitNum.findIndex(item => item === Math.min(...splitNum))
       split[minIndex] = split[minIndex].concat(num)
       // console.log(minIndex, num, split[minIndex])
@@ -53,8 +53,10 @@ var splitArray = function(nums, m) {
   }
 
   console.log(split)
-  return Math.max(...split.map(item => item.reduce((a,b) => a + b)))
+  return Math.max(...split.map(item => item.reduce(sum)))
 };
+
+var sum = (a, b) => a + b;
 
 console.log(splitArray([7,2,5,10,8], 2))
 
