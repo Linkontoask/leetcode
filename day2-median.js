@@ -31,14 +31,12 @@ var findMedianSortedArrays = function(nums1, nums2) {
   let media
   if ((array.length & 1) === 1) {
     media = array[array.length / 2 | 0]
-    console.log('奇数')
   } else {
     const index = array.length / 2
     media = (array[index] + array[index - 1]) / 2
-    console.log('偶数')
   }
 
   return media
 };
 
-console.log(findMedianSortedArrays([1, 1], [1, 2]))
+console.log(findMedianSortedArrays([1, 2], [3, 4]))
