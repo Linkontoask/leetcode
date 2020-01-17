@@ -31,7 +31,7 @@ var groupAnagrams = function(strs) {
 
         if (typeof map[q] !== 'undefined') {
             var j = map[q]
-            r[j] = r[j] ? r[j].concat(item) : [item]
+            r[j] = r[j].concat(item)
         } else {
             map[q] = index
             r[index] = [item]
