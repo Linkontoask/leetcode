@@ -16,16 +16,16 @@ var minFlipsMonoIncr = function(S) {
         }
         maby.push(tmp)
     }
-    var min = S.length, prev = 0;
+    var min = S.length;
     for (var i = 0; i < maby.length; i++) {
         var item = maby[i]
+        var prev = 0
         for (var j = 0; j < S.length; j++) {
             if (S[j] !== item[j]) {
                 prev++
             }
         }
         min = Math.min(min, prev)
-        prev = 0
     }
     return min
 };
